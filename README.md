@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![Home Page]()
+[Home Page]()
 
     A music app made with the help of React.js.
     
@@ -25,4 +25,4 @@
     
 [Icons](www.flaticon.com) made by Freepikfrom 
 
-[Music](https://ncs.io/music) by NCS
+[Music]
