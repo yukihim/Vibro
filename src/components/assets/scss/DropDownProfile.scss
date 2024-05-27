@@ -1,0 +1,15 @@
+.dropdown-profile {
+  position: absolute;
+  z-index: 100000;
+  top: 67px;
+  right: 7px;
+  border-radius: 0 0 10px 10px;
+  border: 1px solid #F3EFE0;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  background-color: #F3EFE0;
+  .MuiSvgIcon-root{
+    color: #008080;
+  }
+}

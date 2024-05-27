@@ -1,0 +1,62 @@
+#main {
+  font-family: Consolas, sans-serif;
+  background: #794141;
+  background: linear-gradient(115deg, #008080 50%, #272635 50%);
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  .nav-item {
+    height: 10vh;
+    display: flex;
+    font-size: 1.3rem;
+    .navbar-brand {
+      font-family: "Pacifico", cursive;
+      color: #533B4D;
+      font-size: 3rem;
+    }
+  }
+  .main-row {
+    display: flex;
+    // flex-flow: row wrap;
+    // justify-content: space-between;
+    align-items: center;
+    height: 90vh;
+    .main-row-img{
+      flex-basis: 50%;
+      flex-grow: 1;
+      .head-phone-img {
+        width: 50%;
+      }
+    }
+    .main-row-text{
+      display: flex;
+      flex-flow: column wrap;
+      // justify-content: center;
+      align-items: center;
+      flex-basis: 50%;
+      // flex-grow: 1;
+      h1 {
+        font-family: "Bungee", cursive;
+        font-size: 2rem;
+        color: #008080;
+      }
+      p {
+        color: #f8eeee;
+        font-size: 1.2rem;
+      }
+      form{
+        font-family: Consolas, sans-serif;
+        letter-spacing: 1px;
+        border: black 2px solid;
+        background-color: #008080; // 282c34
+        color: #fff; // fff
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        margin: 25px 0;
+        padding: 15px 15px;
+        border-radius: 10px;
+      }
+    }
+  }
+}

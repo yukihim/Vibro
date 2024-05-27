@@ -1,0 +1,30 @@
+.footer-player.mobile {
+    padding: 5px;
+    font-size: 12px;
+}
+
+.curr-music-container.mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.curr-music-details.mobile {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.song-name.mobile {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.author-name.mobile {
+    font-size: 12px;
+    color: gray;
+    margin: 0;
+    padding: 0;
+}
