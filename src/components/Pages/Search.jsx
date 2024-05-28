@@ -36,11 +36,14 @@ const Search = () => {
         setSearchResult(playlists.filter((i) => (
             searchWords.every(word => i.name.toLowerCase().includes(word))
             ||
-            i.author_name.some(author => searchWords.every(word => author.toLowerCase().includes(word)))
+            //i.author_name.some(author => searchWords.every(word => author.toLowerCase().includes(word)))
+            (i.author_name && i.author_name.some(author => searchWords.every(word => author.toLowerCase().includes(word))))
             ||
             searchWords.every(word => i.musicName.toLowerCase().includes(word))
             ||
             (i.lang && searchWords.every(word => i.lang.toLowerCase().includes(word)))
+            ||
+            (i.type && searchWords.every(word => i.type.toLowerCase().includes(word.toLowerCase())))
         )));
     }, [search, playlists]);
 

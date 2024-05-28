@@ -4,20 +4,12 @@ export const setPlaylist = (playlist) => {
         payload: playlist
     };
 };
-/*
-export const setPlaylists = (playlists) => {
-    return {
-        type: "SET_PLAYLISTS",
-        payload: playlists
-    };
-};
-*/
 export const setCurrentPlaying = (curr_music) => {
     return {
         type: "SET_CURR_PLAYING",
         payload: curr_music
     };
-}
+};
 export const setBannerOpen = (isOpen) => {
     return {
         type:"SET_BANNER_OPEN",
