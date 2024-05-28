@@ -45,7 +45,14 @@ function FooterMusicPlayer({music}) {
     const handleToggle = (type, val) => {
         switch (type) {
             case "repeat":
-                setRepeatClick(val);
+                //setRepeatClick(val);
+                if (audioElement.current.loop) {
+                    audioElement.current.loop = false;
+                    setRepeatClick(false);
+                } else {
+                    audioElement.current.loop = true;
+                    setRepeatClick(true);
+                }
                 break;
             case "prev":
                 setPrevClicked(val);
@@ -150,6 +157,34 @@ function FooterMusicPlayer({music}) {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    useEffect(()=>{
+        if (isNextClicked) {
+            if (isRepeatClicked) {
+                // If repeat is on, don't change the current song but reset its progress
+                audioElement.current.currentTime = 0;
+                dispatch(setCurrentPlaying(playlists[id]));
+            } else {
+                let currTrackId = (id+1) % playlists.length;
+                dispatch(setCurrentPlaying(playlists[currTrackId]));
+            }
+            setNextClicked(false);
+        }
+        if (isPrevClicked) {
+            if (isRepeatClicked) {
+                // If repeat is on, don't change the current song but reset its progress
+                audioElement.current.currentTime = 0;
+                dispatch(setCurrentPlaying(playlists[id]));
+            } else {
+                let currTrackId = (id-1) % playlists.length;
+                if ((id-1)<0)
+                    currTrackId = playlists.length - 1;
+                
+                dispatch(setCurrentPlaying(playlists[currTrackId]));
+            }
+            setPrevClicked(false);
+        }
+    },[dispatch, id, isNextClicked, isPrevClicked, playlists, isRepeatClicked, audioElement]);
+
     return (
         <div style={useStyle.component} className={`footer-player ${isMobile ? 'mobile' : ''}`}>
             <div className="playback">
@@ -169,7 +204,7 @@ function FooterMusicPlayer({music}) {
             </Button>
             <div className="playback-controls">
 
-                <ControlsToggleButton style={pointer} type={"repeat"}
+                <ControlsToggleButton style={pointer} type={"repeat"} isRepeatClicked={isRepeatClicked}
                                       defaultIcon={<RepeatIcon fontSize={"large"}/>}
                                       changeIcon={<RepeatOneIcon fontSize={"large"}/>}
                                       onClicked={handleToggle}/>

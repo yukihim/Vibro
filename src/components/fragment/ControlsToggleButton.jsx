@@ -45,7 +45,12 @@ function ControlsToggleButton(props) {
     let ButtonTwo = props.changeIcon;
 
     function handleChange() {
-        props.onClicked(props.type, !props.isPlaying);
+        //props.onClicked(props.type, !props.isPlaying);
+        if (props.type === 'repeat') {
+            props.onClicked(props.type, !props.isRepeatClicked);
+        } else {
+            props.onClicked(props.type, !props.isPlaying);
+        }
     }
 
     return (
@@ -54,7 +59,8 @@ function ControlsToggleButton(props) {
             onClick={handleChange}
             className={props.type}>
             {
-                props.isPlaying ? ButtonTwo : ButtonOne
+                //props.isPlaying ? ButtonTwo : ButtonOne
+                props.type === 'repeat' ? (props.isRepeatClicked ? ButtonTwo : ButtonOne) : (props.isPlaying ? ButtonTwo : ButtonOne)
             }
         </Button>
     );
