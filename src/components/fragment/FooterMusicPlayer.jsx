@@ -14,7 +14,7 @@ import ControlsToggleButton from "./ControlsToggleButton";
 import Name from "./Name";
 import {ThemeContext} from "../../api/Theme";
 import {useDispatch, useSelector} from "react-redux";
-import {setBannerOpen, setCurrentPlaying} from "../../actions/actions";
+import {setBannerOpen, setCurrentPlaying, increaseTimesPlayed} from "../../actions/actions";
 import Button from "@material-ui/core/Button";
 
 // Import the mobile styles
@@ -42,6 +42,26 @@ function FooterMusicPlayer({music}) {
     // In the FooterMusicPlayer component
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+    //
+    const [hasBeenPlayed, setHasBeenPlayed] = useState(false);
+
+    const handleSongEnded = () => {
+        // Dispatch increaseTimesPlayed action for the next song
+        let nextSongId = (id + 1) % playlists.length;
+        dispatch(increaseTimesPlayed(nextSongId));
+    };
+
+    useEffect(() => {
+        // Add event listener for 'ended' event
+        audioElement.current.addEventListener('ended', handleSongEnded);
+
+        // Clean up function
+        return () => {
+            // Remove event listener
+            audioElement.current.removeEventListener('ended', handleSongEnded);
+        };
+    }, []);
+
     const handleToggle = (type, val) => {
         switch (type) {
             case "repeat":
@@ -54,22 +74,35 @@ function FooterMusicPlayer({music}) {
                     setRepeatClick(true);
                 }
                 break;
-            case "prev":
-                setPrevClicked(val);
-                break;
-            case "play-pause":
-                //setPlayPauseClicked(val);
-                if (audioElement.current.paused) {
-                    audioElement.current.play();
-                    setPlayPauseClicked(true);
-                } else {
-                    audioElement.current.pause();
-                    setPlayPauseClicked(false);
-                }
-                break;
-            case "next":
-                setNextClicked(val);
-                break;
+                case "prev":
+                    setPrevClicked(val);
+                    if (isPlaying) {
+                        let prevSongId = (id - 1) % playlists.length;
+                        if ((id - 1) < 0)
+                            prevSongId = playlists.length - 1;
+                        dispatch(increaseTimesPlayed(prevSongId));
+                    }
+                    break;
+                case "play-pause":
+                    if (audioElement.current.paused) {
+                        audioElement.current.play();
+                        setPlayPauseClicked(true);
+                        if (!hasBeenPlayed) {
+                            dispatch(increaseTimesPlayed(id)); // Increase times played for the current song
+                            setHasBeenPlayed(true); // Set hasBeenPlayed to true
+                        }
+                    } else {
+                        audioElement.current.pause();
+                        setPlayPauseClicked(false);
+                    }
+                    break;
+                case "next":
+                    setNextClicked(val);
+                    if (isPlaying) {
+                        let nextSongId = (id + 1) % playlists.length;
+                        dispatch(increaseTimesPlayed(nextSongId));
+                    }
+                    break;
             case "volume":
                 setVolumeClicked(!isVolumeClicked);
                 break;
@@ -113,7 +146,12 @@ function FooterMusicPlayer({music}) {
 
     useEffect(() => {
         setCurrTrack(music);
-    }, [music]);
+        // Check if the player is not paused
+        if (isPlaying) {
+            // Dispatch increaseTimesPlayed action when a song is manually selected and the player is not paused
+            dispatch(increaseTimesPlayed(music.id));
+        }
+    }, [music, isPlaying]);
 
     useEffect(() => {
         setSeekTime((currTime) / (duration / 100))
@@ -125,23 +163,6 @@ function FooterMusicPlayer({music}) {
         };
     })
 
-    /*
-    useEffect(()=>{
-        if (isNextClicked) {
-            let currTrackId = (id+1) % playlists.length;
-            dispatch(setCurrentPlaying(playlists[currTrackId]));
-            setNextClicked(false);
-        }
-        if (isPrevClicked) {
-            let currTrackId = (id-1) % playlists.length;
-            if ((id-1)<0)
-                currTrackId = playlists.length - 1;
-            
-            dispatch(setCurrentPlaying(playlists[currTrackId]));
-            setPrevClicked(false);
-        }
-    },[dispatch, id, isNextClicked, isPrevClicked, playlists]);
-    */
     useEffect(()=>{
         if (isNextClicked) {
             if (isRepeatClicked) {
@@ -165,6 +186,7 @@ function FooterMusicPlayer({music}) {
                     currTrackId = playlists.length - 1;
                 
                 dispatch(setCurrentPlaying(playlists[currTrackId]));
+                dispatch(increaseTimesPlayed(currTrackId)); // Increase times played for the previous song
             }
             setPrevClicked(false);
         }
@@ -234,27 +256,27 @@ function FooterMusicPlayer({music}) {
             <div className="playback-controls">
 
                 <ControlsToggleButton style={pointer} type={"repeat"} isRepeatClicked={isRepeatClicked}
-                                      defaultIcon={<RepeatIcon fontSize={"large"}/>}
-                                      changeIcon={<RepeatOneIcon fontSize={"large"}/>}
-                                      onClicked={handleToggle}/>
+                                    defaultIcon={<RepeatIcon fontSize={"large"}/>}
+                                    changeIcon={<RepeatOneIcon fontSize={"large"}/>}
+                                    onClicked={handleToggle}/>
 
                 <ControlsToggleButton style={pointer} type={"prev"}
-                                      defaultIcon={<SkipPreviousIcon fontSize={"large"}/>}
-                                      changeIcon={<SkipPreviousIcon fontSize={"large"}/>}
-                                      onClicked={handleToggle}/>
+                                    defaultIcon={<SkipPreviousIcon fontSize={"large"}/>}
+                                    changeIcon={<SkipPreviousIcon fontSize={"large"}/>}
+                                    onClicked={handleToggle}/>
 
                 <audio ref={audioElement} src={require("../assets/music/" + musicName)} preload={"metadata"}/>
 
                 <ControlsToggleButton style={pointer} type={"play-pause"} isPlaying={isPlaying}
-                                      defaultIcon={<PlayArrowIcon fontSize={"large"}/>}
-                                      changeIcon={<PauseIcon fontSize={"large"}/>}
-                                      onClicked={handleToggle}/>
+                                    defaultIcon={<PlayArrowIcon fontSize={"large"}/>}
+                                    changeIcon={<PauseIcon fontSize={"large"}/>}
+                                    onClicked={handleToggle}/>
 
 
                 <ControlsToggleButton style={pointer} type={"next"}
-                                      defaultIcon={<SkipNextIcon fontSize={"large"}/>}
-                                      changeIcon={<SkipNextIcon fontSize={"large"}/>}
-                                      onClicked={handleToggle}/>
+                                    defaultIcon={<SkipNextIcon fontSize={"large"}/>}
+                                    changeIcon={<SkipNextIcon fontSize={"large"}/>}
+                                    onClicked={handleToggle}/>
             </div>
             <div className="playback-widgets">
                 <div className="timer">
@@ -268,9 +290,9 @@ function FooterMusicPlayer({music}) {
                     <Slider style={{color: useStyle.theme}} value={volume} onChange={handleVolumeChange}/>
                 </div>
                 <ControlsToggleButton style={pointer} type={"volume"}
-                                      defaultIcon={isVolumeClicked ? <VolumeOffIcon/> : <VolumeUpIcon/>}
-                                      changeIcon={isVolumeClicked ? <VolumeUpIcon/> : <VolumeOffIcon/>}
-                                      onClicked={handleToggle}/>
+                                    defaultIcon={isVolumeClicked ? <VolumeOffIcon/> : <VolumeUpIcon/>}
+                                    changeIcon={isVolumeClicked ? <VolumeUpIcon/> : <VolumeOffIcon/>}
+                                    onClicked={handleToggle}/>
             </div>
         </div>
 
