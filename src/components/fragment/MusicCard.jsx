@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import '../assets/scss/MusicCard.scss';
 import PlayCircleFilledWhiteIcon from "@material-ui/icons/PlayCircleFilledWhite";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 //import {useDispatch, useSelector} from "react-redux";
 //import {increaseTimesPlayed, setCurrentPlaying, setPlayingStatus} from "../../actions/actions";
-import {setCurrentPlaying, setPlayingStatus} from "../../actions/actions";
+import {increaseTimesPlayed, setCurrentPlaying} from "../../actions/actions"
 import Name from "./Name";
 import {Skeleton} from "@material-ui/lab";
 import Box from "@material-ui/core/Box";
@@ -23,15 +23,24 @@ function MusicCard({ music, showMetadata, toggleMetadata }) {
 
     const dispatch = useDispatch();
 
-    //const isPlaying = useSelector(state => state.isPlaying);
+    const isPlaying = useSelector(state => state.musicReducer.isPlaying);
 
     function handlePlay() {
         try {
             dispatch(setCurrentPlaying(music));
-            //dispatch(increaseTimesPlayed(music.id));
+
+            if (isPlaying)
+                console.log('isPlaying');  // Log the value of isPlaying
+            else
+                console.log('isNotPlaying');  // Log the value of isPlaying
+
+            console.log('music.id:', music.id);  // Log the value of music.id
+            
+            if (isPlaying)
+                dispatch(increaseTimesPlayed(music.id));
 
             // Check if the current music is already playing
-            dispatch(setPlayingStatus(true));
+            // dispatch(setPlayingStatus(true));
         } catch (error) {
             console.error("Error playing music: ", error);
         }

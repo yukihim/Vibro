@@ -5,7 +5,8 @@ export const initialState = {
     playing: null,
     bannerOpen: false,
     search: null,
-    language: null
+    language: null,
+    isPlaying: false
 };
 const musicReducer = (state=initialState,action) => {
     switch (action.type){

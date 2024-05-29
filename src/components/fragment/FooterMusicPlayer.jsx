@@ -14,7 +14,7 @@ import ControlsToggleButton from "./ControlsToggleButton";
 import Name from "./Name";
 import {ThemeContext} from "../../api/Theme";
 import {useDispatch, useSelector} from "react-redux";
-import {setBannerOpen, setCurrentPlaying} from "../../actions/actions";
+import {setBannerOpen, setCurrentPlaying, setPlayingStatus} from "../../actions/actions";
 import Button from "@material-ui/core/Button";
 
 // Import the mobile styles
@@ -60,12 +60,16 @@ function FooterMusicPlayer({music}) {
             case "play-pause":
                 if (audioElement.current.paused) {
                     audioElement.current.play();
-                    setPlayPauseClicked(true);
+                    setPlayPauseClicked(true)
                     // Increase timesPlayed of current song by 1
                     playlists[id].timesPlayed += 1;
+
+                    dispatch(setPlayingStatus(true));
                 } else {
                     audioElement.current.pause();
                     setPlayPauseClicked(false);
+
+                    dispatch(setPlayingStatus(false));
                 }
                 break;
             case "next":
@@ -93,7 +97,6 @@ function FooterMusicPlayer({music}) {
     useEffect(()=>{
         dispatch(setBannerOpen(bannerToggle));
     },[dispatch,bannerToggle]);
-
 
     useEffect(() => {
         isPlaying
@@ -203,7 +206,7 @@ function FooterMusicPlayer({music}) {
             
             <Button startIcon={<Avatar variant="square" src={require("../assets/img/" + img)} alt={name}/>} onClick={handleBannerToggle} className={`curr-music-container ${isMobile ? 'mobile' : ''}`}>
                 <div className={`curr-music-details ${isMobile ? 'mobile' : ''}`}>
-                    <Name name={name} className={`song-name ${isMobile ? 'mobile' : ''}`} length={name.length}/>
+                    <Name name={name} className={`another-song-name ${isMobile ? 'mobile' : ''}`} length={name.length}/>
                     <Name name={author_name.join(', ')} className={`author-name ${isMobile ? 'mobile' : ''}`} length={author_name.join(', ').length}/>
                 </div>
             </Button>
