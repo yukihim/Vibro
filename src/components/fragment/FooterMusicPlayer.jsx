@@ -125,6 +125,7 @@ function FooterMusicPlayer({music}) {
         };
     })
 
+    /*
     useEffect(()=>{
         if (isNextClicked) {
             let currTrackId = (id+1) % playlists.length;
@@ -140,6 +141,34 @@ function FooterMusicPlayer({music}) {
             setPrevClicked(false);
         }
     },[dispatch, id, isNextClicked, isPrevClicked, playlists]);
+    */
+    useEffect(()=>{
+        if (isNextClicked) {
+            if (isRepeatClicked) {
+                // If repeat is on, don't change the current song but reset its progress
+                audioElement.current.currentTime = 0;
+                dispatch(setCurrentPlaying(playlists[id]));
+            } else {
+                let currTrackId = (id+1) % playlists.length;
+                dispatch(setCurrentPlaying(playlists[currTrackId]));
+            }
+            setNextClicked(false);
+        }
+        if (isPrevClicked) {
+            if (isRepeatClicked) {
+                // If repeat is on, don't change the current song but reset its progress
+                audioElement.current.currentTime = 0;
+                dispatch(setCurrentPlaying(playlists[id]));
+            } else {
+                let currTrackId = (id-1) % playlists.length;
+                if ((id-1)<0)
+                    currTrackId = playlists.length - 1;
+                
+                dispatch(setCurrentPlaying(playlists[currTrackId]));
+            }
+            setPrevClicked(false);
+        }
+    },[dispatch, id, isNextClicked, isPrevClicked, playlists, isRepeatClicked, audioElement]);
 
     function formatTime(secs) {
         const t = new Date(1970, 0, 1);
