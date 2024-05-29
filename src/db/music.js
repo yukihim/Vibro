@@ -235,78 +235,81 @@ let musicDB = [
     },
     {
         id: 12,
-        name: "WHITE NIGHT",
+        name: "Gonna Be Someone New (Feat. Pictor)",
         author_name: [
-          "Jake Miller"
+          "RUQOA",
+          "Pictor"
         ],
-        img: "whitenighthsr.jpg",
+        img: "gonnabesomeonenew.jpg",
         lang: "ENGLISH",
         timesPlayed: 0,
-        type: "Pop",
-        duration: "02:02",
-        musicName: "WHITE NIGHT.mp3",
+        type: "Electronic",
+        duration: "04:02",
+        musicName: "RUQOA & Pictor - Gonna Be Someone New.wav",
         attribution: {
-            song: "Jake Miller - WHITE NIGHT",
-            musicBy: "HOYO-MiX",
-            download: null,
-            stream: "https://www.youtube.com/watch?v=U7W8QR9fsFw"
+            song: "RUQOA & Pictor - Gonna Be Someone New",
+            musicBy: "Good Vibes Only",
+            download: "https://gate.sc/?url=https%3A%2F%2Fhypeddit.com%2Fruqoapictor%2Fgonnabesomeonenew&token=9880d-1-1717000152871",
+            stream: "https://www.youtube.com/watch?v=_2aK7eKczkc"
         }
     },
     {
         id: 13,
-        name: "WHITE NIGHT",
+        name: "Gonna Be Someone New (Feat. Pictor) (Piano Version)",
         author_name: [
-          "Jake Miller"
+            "RUQOA",
+            "Pictor"
         ],
-        img: "whitenighthsr.jpg",
+        img: "gonnabesomeonenewpianover.jpg",
         lang: "ENGLISH",
         timesPlayed: 0,
-        type: "Pop",
-        duration: "02:02",
-        musicName: "WHITE NIGHT.mp3",
+        type: "Instrumental",
+        duration: "03:28",
+        musicName: "RUQOA & Pictor - Gonna Be Someone New (Piano Version).wav",
         attribution: {
-            song: "Jake Miller - WHITE NIGHT",
-            musicBy: "HOYO-MiX",
-            download: null,
-            stream: "https://www.youtube.com/watch?v=U7W8QR9fsFw"
+            song: "RUQOA & Pictor - Gonna Be Someone New (Piano Version)",
+            musicBy: "Good Vibes Only",
+            download: "https://gate.sc/?url=https%3A%2F%2Fhypeddit.com%2Fruqoapictor%2Fgonnabesomeonenewpianoversion&token=e12fee-1-1716999996190",
+            stream: "https://www.youtube.com/watch?v=CIc3BX_QjBI"
         }
     },
     {
         id: 14,
-        name: "WHITE NIGHT",
+        name: "夏の記憶 (Feat. 初音ミク)",
         author_name: [
-          "Jake Miller"
+          "RUQOA",
+          "初音ミク"
         ],
-        img: "whitenighthsr.jpg",
-        lang: "ENGLISH",
+        img: "notAvailable.jpg",
+        lang: "JAPANESE",
         timesPlayed: 0,
-        type: "Pop",
-        duration: "02:02",
-        musicName: "WHITE NIGHT.mp3",
+        type: "Electronic",
+        duration: "03:40",
+        musicName: "夏の記憶 (feat.初音ミク).mp3",
         attribution: {
-            song: "Jake Miller - WHITE NIGHT",
-            musicBy: "HOYO-MiX",
+            song: "RUQOA - 夏の記憶 (Feat. 初音ミク)",
+            musicBy: "RUQOA",
             download: null,
-            stream: "https://www.youtube.com/watch?v=U7W8QR9fsFw"
+            stream: "https://www.youtube.com/watch?v=YFVJhG0I-Mg"
         }
     },
     {
         id: 15,
-        name: "WHITE NIGHT",
+        name: "Vòng Xoay",
         author_name: [
-          "Jake Miller"
+          "KoQuet"
         ],
-        img: "whitenighthsr.jpg",
-        lang: "ENGLISH",
+        img: "koquetvongxoay.png",
+        lang: "VIETNAMESE",
         timesPlayed: 0,
         type: "Pop",
-        duration: "02:02",
-        musicName: "WHITE NIGHT.mp3",
+        duration: "02:56",
+        musicName: "Vòng Xoay.mp3",
         attribution: {
-            song: "Jake Miller - WHITE NIGHT",
-            musicBy: "HOYO-MiX",
+            song: "KoQuet - Vòng Xoay",
+            musicBy: "KoQuet",
             download: null,
-            stream: "https://www.youtube.com/watch?v=U7W8QR9fsFw"
+            stream: "https://www.youtube.com/watch?v=HGTP_2Cbj-c"
         }
     }
 ];
