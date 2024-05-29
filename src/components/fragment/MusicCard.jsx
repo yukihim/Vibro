@@ -3,7 +3,8 @@ import '../assets/scss/MusicCard.scss';
 import PlayCircleFilledWhiteIcon from "@material-ui/icons/PlayCircleFilledWhite";
 import {useDispatch} from "react-redux";
 //import {useDispatch, useSelector} from "react-redux";
-import {increaseTimesPlayed, setCurrentPlaying, setPlayingStatus} from "../../actions/actions";
+//import {increaseTimesPlayed, setCurrentPlaying, setPlayingStatus} from "../../actions/actions";
+import {setCurrentPlaying, setPlayingStatus} from "../../actions/actions";
 import Name from "./Name";
 import {Skeleton} from "@material-ui/lab";
 import Box from "@material-ui/core/Box";
@@ -27,7 +28,7 @@ function MusicCard({ music, showMetadata, toggleMetadata }) {
     function handlePlay() {
         try {
             dispatch(setCurrentPlaying(music));
-            dispatch(increaseTimesPlayed(music.id));
+            //dispatch(increaseTimesPlayed(music.id));
 
             // Check if the current music is already playing
             dispatch(setPlayingStatus(true));

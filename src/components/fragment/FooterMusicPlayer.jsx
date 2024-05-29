@@ -58,10 +58,11 @@ function FooterMusicPlayer({music}) {
                 setPrevClicked(val);
                 break;
             case "play-pause":
-                //setPlayPauseClicked(val);
                 if (audioElement.current.paused) {
                     audioElement.current.play();
                     setPlayPauseClicked(true);
+                    // Increase timesPlayed of current song by 1
+                    playlists[id].timesPlayed += 1;
                 } else {
                     audioElement.current.pause();
                     setPlayPauseClicked(false);
@@ -125,11 +126,12 @@ function FooterMusicPlayer({music}) {
         };
     })
 
-    /*
     useEffect(()=>{
         if (isNextClicked) {
             let currTrackId = (id+1) % playlists.length;
             dispatch(setCurrentPlaying(playlists[currTrackId]));
+            // Increase timesPlayed of next song by 1
+            playlists[currTrackId].timesPlayed += 1;
             setNextClicked(false);
         }
         if (isPrevClicked) {
@@ -138,34 +140,8 @@ function FooterMusicPlayer({music}) {
                 currTrackId = playlists.length - 1;
             
             dispatch(setCurrentPlaying(playlists[currTrackId]));
-            setPrevClicked(false);
-        }
-    },[dispatch, id, isNextClicked, isPrevClicked, playlists]);
-    */
-    useEffect(()=>{
-        if (isNextClicked) {
-            if (isRepeatClicked) {
-                // If repeat is on, don't change the current song but reset its progress
-                audioElement.current.currentTime = 0;
-                dispatch(setCurrentPlaying(playlists[id]));
-            } else {
-                let currTrackId = (id+1) % playlists.length;
-                dispatch(setCurrentPlaying(playlists[currTrackId]));
-            }
-            setNextClicked(false);
-        }
-        if (isPrevClicked) {
-            if (isRepeatClicked) {
-                // If repeat is on, don't change the current song but reset its progress
-                audioElement.current.currentTime = 0;
-                dispatch(setCurrentPlaying(playlists[id]));
-            } else {
-                let currTrackId = (id-1) % playlists.length;
-                if ((id-1)<0)
-                    currTrackId = playlists.length - 1;
-                
-                dispatch(setCurrentPlaying(playlists[currTrackId]));
-            }
+            // Increase timesPlayed of previous song by 1
+            playlists[currTrackId].timesPlayed += 1;
             setPrevClicked(false);
         }
     },[dispatch, id, isNextClicked, isPrevClicked, playlists, isRepeatClicked, audioElement]);
