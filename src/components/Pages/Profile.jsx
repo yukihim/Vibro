@@ -12,6 +12,8 @@ function Profile() {
     const {playlists} = useSelector(state => state.musicReducer);
     const [mostPlayed, setMostPlayed] = useState([]);
 
+    const [playlistTypes, setPlaylistTypes] = useState([]);
+
     const [showMetadataId, setShowMetadataId] = useState(null);
 
     const toggleMetadata = (id) => {
@@ -31,6 +33,10 @@ function Profile() {
 
     useEffect(() => {
         setMostPlayed(playlists.sort(sortByProperty("timesPlayed")));
+
+        //
+        const types = [...new Set(playlists.map(item => item.type.toLowerCase()))];
+        setPlaylistTypes(types);
     }, [playlists]);
 
     useEffect(() => {
@@ -56,8 +62,9 @@ function Profile() {
                             My playlist:
                         </div>
                         <div style={{display: "flex"}}>
-                            <SideBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/playlist/instrumental"} title={"Instrumental"}/>
-                            <SideBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/playlist/electronic"} title={"Electronic"}/>
+                            {playlistTypes.map((type, index) => (
+                                <SideBarOptions key={index} className={"lib-sub"} Icon={PlaylistPlay} href={`/home/playlist/${type.toLowerCase()}`}  title={type}/>
+                            ))}
                         </div>
                     </div>
                 </div>

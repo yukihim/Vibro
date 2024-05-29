@@ -1,39 +1,40 @@
 let musicDB = [
     {
         id: 0,
-        name: "Shakedown",
+        name: "ENDLESS CIDER (Feat. SUCH)",
         author_name: [
-          "Clarx"
+          "Mameyudoufu",
+          "SUCH"
         ],
-        img: "shakedown.jpg",
-        lang: "ENGLISH",
+        img: "artworks-49GdxOHSFY4znBIe-GwHeyA-t500x500.jpg",
+        lang: null,
         timesPlayed: 0,
         type: "Electronic",
-        duration: "02:45",
-        musicName: "Clarx - Shakedown [NCS Release].mp3",
+        duration: "03:13",
+        musicName: "ENDLESS CIDER Feat. SUCH.mp3",
         attribution: {
-            song: "Clarx - Shakedown [NCS Release]",
-            musicBy: "NoCopyrightSounds",
-            download: "http://ncs.io/Shakedown",
-            stream: "http://youtu.be/qJT0mc3q6Lg"
+            song: "Mameyudoufu - ENDLESS CIDER (Feat. SUCH)",
+            musicBy: "Mameyudoufu",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=M_HOvdeHRsg"
         }
     },
     {
         id: 1,
-        name: "Games Worldbeat",
+        name: "Moonlight Sonata",
         author_name: [
-          "Bernardo R."
+          "Beethoven"
         ],
         img: "notAvailable.jpg",
         lang: null,
         timesPlayed: 0,
-        type: "Instrumental",
-        duration: "01:46",
-        musicName: "mixkit-games-worldbeat-466.mp3",
+        type: "Classical",
+        duration: "04:38",
+        musicName: "MoonlightSonata-Beethoven-584836.mp3",
         attribution: {
-            song: "Games Worldbeat",
-            musicBy: "mixkit",
-            download: null,
+            song: "Beethoven - Moonlight Sonata",
+            musicBy: "Beethoven",
+            download: "https://www.nhaccuatui.com/bai-hat/moonlight-sonata-beethoven.ozYiO77hFC.html",
             stream: null
         }
     },
@@ -59,22 +60,22 @@ let musicDB = [
     },
     {
         id: 3,
-        name: "Want You (feat. Sara Skinner)",
+        name: "Spiral Fortune",
         author_name: [
-          "Subtact",
-          "Sara Skinner"
+          "Marpril",
+          "PSYQUI"
         ],
-        img: "want-you-feat-sara-skinner-1586956276-s4lOrfrHQj.jpg",
-        lang: "ENGLISH",
+        img: "06115.png",
+        lang: "JAPANESE",
         timesPlayed: 0,
         type: "Electronic",
-        duration: "03:16",
-        musicName: "Subtact - Want You (feat. Sara Skinner) [NCS Release].mp3",
+        duration: "02:06",
+        musicName: "Marpril - Spiral Fortune.mp3",
         attribution: {
-            song: "Subtact - Want You (feat. Sara Skinner) [NCS Release]",
-            musicBy: "NoCopyrightSounds",
-            download: "http://ncs.io/WantYou",
-            stream: "http://youtu.be/Pww31vN_1QY"
+            song: "Marpril - Spiral Fortune",
+            musicBy: "Marpril",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=oFWPZZBYFKI"
         }
     },
     {
@@ -118,44 +119,6 @@ let musicDB = [
     },
     {
         id: 6,
-        name: "Impact Moderato",
-        author_name: [
-          "Kevin MacLeod"
-        ],
-        img: "notAvailable.jpg",
-        lang: "ENGLISH",
-        timesPlayed: 0,
-        type: "Instrumental",
-        duration: "00:27",
-        musicName: "impact.mp3",
-        attribution: {
-            song: "Impact Moderato",
-            musicBy: "Kevin MacLeod",
-            download: null,
-            stream: null
-        }
-    },
-    {
-        id: 7,
-        name: "Impact Moderato 2",
-        author_name: [
-          "Kevin MacLeod"
-        ],
-        img: "notAvailable.jpg",
-        lang: "ENGLISH",
-        timesPlayed: 0,
-        type: "Instrumental",
-        duration: "02:12",
-        musicName: "impact2.mp3",
-        attribution: {
-            song: "Impact Moderato",
-            musicBy: "Kevin MacLeod",
-            download: null,
-            stream: null
-        }
-    },
-    {
-        id: 8,
         name: "Ignite",
         author_name: [
           "Tom wilson",
@@ -175,13 +138,13 @@ let musicDB = [
         }
     },
     {
-        id: 9,
+        id: 7,
         name: "Woke Up",
         author_name: [
           "XG"
         ],
         img: "xgwokeup.jpg",
-        lang: null,
+        lang: "ENGLISH",
         timesPlayed: 0,
         type: "Rap",
         duration: "03:08",
@@ -191,6 +154,159 @@ let musicDB = [
             musicBy: "XG",
             download: null,
             stream: "https://www.youtube.com/watch?v=5sT20edl02I"
+        }
+    },
+    {
+        id: 8,
+        name: "Flowers (Instrumental cover)",
+        author_name: [
+          "Miley Cyrus",
+          "Brooklyn Duo"
+        ],
+        img: "notAvailable.jpg",
+        lang: "ENGLISH",
+        timesPlayed: 0,
+        type: "Instrumental",
+        duration: "03:56",
+        musicName: "Flowers - Miley Cyrus (Cello & Piano Cover) - Brooklyn Duo.mp3",
+        attribution: {
+            song: "Miley Cyrus - Flowers (Instrumental cover) by Brooklyn Duo",
+            musicBy: "Brooklyn Duo",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=UNeDDie8HOI"
+        }
+    },
+    {
+        id: 9,
+        name: "Last Laugh",
+        author_name: [
+          "Jake Hill"
+        ],
+        img: "notAvailable.jpg",
+        lang: "ENGLISH",
+        timesPlayed: 0,
+        type: "Rap",
+        duration: "01:59",
+        musicName: "Jake Hill - Last Laugh.mp3",
+        attribution: {
+            song: "Jake Hill - Last Laugh",
+            musicBy: "Jake Hill",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=OjzMhlHkv4s"
+        }
+    },
+    {
+        id: 10,
+        name: "ビビデバ",
+        author_name: [
+          "Hoshimachi Suisei"
+        ],
+        img: "ab67616d0000b2735c68d320bd6eb25327a246a9.jpg",
+        lang: "JAPANESE",
+        timesPlayed: 0,
+        type: "Jpop",
+        duration: "01:59",
+        musicName: "ビビデバ  星街すいせい(official).mp3",
+        attribution: {
+            song: "Hoshimachi Suisei - ビビデバ",
+            musicBy: "Hoshimachi Suisei",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=8ZP5eqm4JqM"
+        }
+    },
+    {
+        id: 11,
+        name: "WHITE NIGHT",
+        author_name: [
+          "Jake Miller"
+        ],
+        img: "whitenighthsr.jpg",
+        lang: "ENGLISH",
+        timesPlayed: 0,
+        type: "Pop",
+        duration: "02:02",
+        musicName: "WHITE NIGHT.mp3",
+        attribution: {
+            song: "Jake Miller - WHITE NIGHT",
+            musicBy: "HOYO-MiX",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=U7W8QR9fsFw"
+        }
+    },
+    {
+        id: 12,
+        name: "WHITE NIGHT",
+        author_name: [
+          "Jake Miller"
+        ],
+        img: "whitenighthsr.jpg",
+        lang: "ENGLISH",
+        timesPlayed: 0,
+        type: "Pop",
+        duration: "02:02",
+        musicName: "WHITE NIGHT.mp3",
+        attribution: {
+            song: "Jake Miller - WHITE NIGHT",
+            musicBy: "HOYO-MiX",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=U7W8QR9fsFw"
+        }
+    },
+    {
+        id: 13,
+        name: "WHITE NIGHT",
+        author_name: [
+          "Jake Miller"
+        ],
+        img: "whitenighthsr.jpg",
+        lang: "ENGLISH",
+        timesPlayed: 0,
+        type: "Pop",
+        duration: "02:02",
+        musicName: "WHITE NIGHT.mp3",
+        attribution: {
+            song: "Jake Miller - WHITE NIGHT",
+            musicBy: "HOYO-MiX",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=U7W8QR9fsFw"
+        }
+    },
+    {
+        id: 14,
+        name: "WHITE NIGHT",
+        author_name: [
+          "Jake Miller"
+        ],
+        img: "whitenighthsr.jpg",
+        lang: "ENGLISH",
+        timesPlayed: 0,
+        type: "Pop",
+        duration: "02:02",
+        musicName: "WHITE NIGHT.mp3",
+        attribution: {
+            song: "Jake Miller - WHITE NIGHT",
+            musicBy: "HOYO-MiX",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=U7W8QR9fsFw"
+        }
+    },
+    {
+        id: 15,
+        name: "WHITE NIGHT",
+        author_name: [
+          "Jake Miller"
+        ],
+        img: "whitenighthsr.jpg",
+        lang: "ENGLISH",
+        timesPlayed: 0,
+        type: "Pop",
+        duration: "02:02",
+        musicName: "WHITE NIGHT.mp3",
+        attribution: {
+            song: "Jake Miller - WHITE NIGHT",
+            musicBy: "HOYO-MiX",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=U7W8QR9fsFw"
         }
     }
 ];
