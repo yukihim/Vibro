@@ -1,10 +1,7 @@
 import React from "react";
 import HeadPhone from '../assets/img/Login/headphones.svg';
 import './css/Login.scss';
-import {withRouter} from "react-router-dom";
-
-import {connect} from 'react-redux';
-import {actions} from '../../actions'; // Replace with the path to your actions file
+import { withRouter } from "react-router-dom";
 //import {Link, useHistory} from "react-router-dom";
 
 class Login extends React.Component{
@@ -42,11 +39,10 @@ class Login extends React.Component{
     handleSubmit(event) {
         event.preventDefault();
         // usr = "admin" and psw = "123"
-        if (this.state.username === 'admin' && this.state.password === '123') {
+        if (this.state.username === 'admin' && this.state.password === '123')
             //this.props.history.push('/home', { loginSuccess: true });
-            this.props.login(); // Dispatch the login action
             this.props.history.replace('/home', { loginSuccess: true }); // Use replace instead of push
-        } else
+        else
             alert('Login failed: Wrong username or password. Please try again.');
     }
 
@@ -131,10 +127,4 @@ class Login extends React.Component{
     }
 }
 
-//export default withRouter(Login);
-
-const mapDispatchToProps = {
-    login
-};
-
-export default connect(null, mapDispatchToProps)(withRouter(Login));
+export default withRouter(Login);
