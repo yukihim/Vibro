@@ -311,6 +311,44 @@ let musicDB = [
             download: null,
             stream: "https://www.youtube.com/watch?v=HGTP_2Cbj-c"
         }
+    },
+    {
+        id: 16,
+        name: "LOWKEY (ACOUSTIC)",
+        author_name: [
+          "NIKI"
+        ],
+        img: "notAvailable.jpg",
+        lang: "ENGLISH",
+        timesPlayed: 0,
+        type: "Acoustic",
+        duration: "03:07",
+        musicName: "NIKI - LOWKEY (ACOUSTIC).mp3",
+        attribution: {
+            song: "NIKI - LOWKEY (ACOUSTIC)",
+            musicBy: "NIKI",
+            download: null,
+            stream: null
+        }
+    },
+    {
+        id: 17,
+        name: "LOWKEY",
+        author_name: [
+          "NIKI"
+        ],
+        img: "nikilowkey.jpg",
+        lang: "ENGLISH",
+        timesPlayed: 0,
+        type: "Pop",
+        duration: "02:51",
+        musicName: "lowkey.mp3",
+        attribution: {
+            song: "NIKI - LOWKEY",
+            musicBy: "NIKI",
+            download: null,
+            stream: "https://www.youtube.com/watch?v=9jz3fWYwMuc"
+        }
     }
 ];
 
