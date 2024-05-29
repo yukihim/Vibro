@@ -15,18 +15,24 @@ import CurrentPlayingLarge from "../fragment/CurrentPlayingLarge";
 import Search from "./Search";
 import Playlist from "../fragment/Playlist";
 import PlaylistAll from "../fragment/PlaylistAll";
-// import Login from "./Login";
+
+//
+import Login from "./Login";
 import {Skeleton} from "@material-ui/lab";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Route, useLocation} from 'react-router-dom';
 import Logout from './Logout'; // Import the Logout component
+
+import PrivateRoute from './PrivateRoute';
 
 // ...
 
 <Router>
     {/* ... other routes ... */}
+    <PrivateRoute path="/home" component={Home} />
+    <Route path="/login" component={Login} />
     <Route path="/logout" component={Logout} />
 </Router>
 
@@ -59,10 +65,18 @@ function Home() {
     const [currMusic, setCurrMusic] = useState(null);
     const [Page, setCurrPage] = useState(<MusicCardContainer/>);
 
+    /*
     let pathname = window.location.pathname;
     useEffect(() => {
         setCurrPage(getCurrPage(pathname))
     }, [pathname]);
+    */
+    //////////////////////////////////////////
+    let location = useLocation();
+    useEffect(() => {
+        setCurrPage(getCurrPage(location.pathname))
+    }, [location]);
+    //////////////////////////////////////////
 
     window.addEventListener("resize", handleResize);
 

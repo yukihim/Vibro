@@ -37,3 +37,10 @@ export const setPlayingStatus = (isPlaying) => {
         payload: isPlaying
     };
 }
+
+//login
+export const login = () => {
+    return {
+        type: "USER_LOGIN"
+    };
+};
