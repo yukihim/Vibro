@@ -127,14 +127,17 @@ function FooterMusicPlayer({music}) {
         audioElement.current.onended = ()=> {
             setNextClicked(true);
         };
-    })
+    },);
 
     useEffect(()=>{
         if (isNextClicked) {
             let currTrackId = (id+1) % playlists.length;
             dispatch(setCurrentPlaying(playlists[currTrackId]));
-            // Increase timesPlayed of next song by 1
-            playlists[currTrackId].timesPlayed += 1;
+            
+            if (!isRepeatClicked)
+                // Increase timesPlayed of next song by 1
+                playlists[currTrackId].timesPlayed += 1;
+            
             setNextClicked(false);
         }
         if (isPrevClicked) {
@@ -143,8 +146,11 @@ function FooterMusicPlayer({music}) {
                 currTrackId = playlists.length - 1;
             
             dispatch(setCurrentPlaying(playlists[currTrackId]));
-            // Increase timesPlayed of previous song by 1
-            playlists[currTrackId].timesPlayed += 1;
+
+            if (!isRepeatClicked)
+                // Increase timesPlayed of previous song by 1
+                playlists[currTrackId].timesPlayed += 1;
+
             setPrevClicked(false);
         }
     },[dispatch, id, isNextClicked, isPrevClicked, playlists, isRepeatClicked, audioElement]);
