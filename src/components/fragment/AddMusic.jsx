@@ -98,7 +98,7 @@ function AddMusic() {
                     <div>
                         <input type="text" value={"ID: "+id} disabled/>
                         <input type="text" value={songName} placeholder={"Song Name"} id={"name"} onChange={(e) => setSongName(e.target.value)}/>
-                        <input type="text" value={artistName} placeholder={"Singer Name"} id={"artist"} onChange={(e) => setArtistName(e.target.value)}/>
+                        <input type="text" value={artistName} placeholder={"Author Name"} id={"artist"} onChange={(e) => setArtistName(e.target.value)}/>
 
                         <Button onClick={(event) => addMusic(event)} className="add-button" style={{backgroundColor: useStyle.theme}} variant={"contained"} endIcon={<Add/>}>
                             Add
