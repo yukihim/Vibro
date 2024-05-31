@@ -24,5 +24,3 @@
 ## Attribution
     
 [Icons](www.flaticon.com) made by Freepikfrom 
-
-[Music]
