@@ -26,7 +26,7 @@
 [Icons](www.flaticon.com) made by Freepikfrom
 
 ## Run the app
-* ### Open command prompt
-* ### Run npm install
-* ### Run npm run build
-* ### Run npm start
+* ###### Open command prompt
+* ###### Run npm install
+* ###### Run npm run build
+* ###### Run npm start
