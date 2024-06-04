@@ -27,7 +27,7 @@
 
 ## Run the app
 1. **Open command prompt**
-2. **Navigate to the directory where your Vibro project files are located by using "cd <path>"**
+2. **Navigate to the directory where your Vibro project files are located by using "cd \<path\>"**
 3. **Run "npm install"**
 4. **Run "npm run build"**
 5. **Run "npm start"**
