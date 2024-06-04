@@ -27,9 +27,10 @@
 
 ## Run the app
 1. **Open command prompt**
-2. **Run npm install**
-3. **Run npm run build**
-4. **Run npm start**
+2. **Navigate to the directory where your Vibro project files are located by using "cd <path>"**
+3. **Run "npm install"**
+4. **Run "npm run build"**
+5. **Run "npm start"**
 
 This will start a local development server that you can use to access your app in your web browser. By default, the app should be accessible at http://localhost:3000/.
 
