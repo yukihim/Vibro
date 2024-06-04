@@ -26,7 +26,10 @@
 [Icons](www.flaticon.com) made by Freepikfrom
 
 ## Run the app
-* ###### Open command prompt
-* ###### Run npm install
-* ###### Run npm run build
-* ###### Run npm start
+1. ** Open command prompt **
+2. ** Run npm install **
+3. ** Run npm run build **
+4. ** Run npm start **
+
+This will start a local development server that you can use to access your app in your web browser. By default, the app should be accessible at http://localhost:3000/.
+**Note:** These instructions assume you have Node.js and npm installed on your system. If you don't have them, you can download them from the official Node.js website (https://nodejs.org/en).
