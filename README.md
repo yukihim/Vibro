@@ -36,4 +36,4 @@ This will start a local development server that you can use to access your app i
 
 **Note:** These instructions assume you have Node.js and npm installed on your system. If you don't have them, you can download them from the official Node.js website (https://nodejs.org/en).
 
-## For full experience, using the live deployed web is better at ### [Vibro](https://vibro-theta.vercel.app/)
+## For full experience, using the live deployed web is better at [Vibro](https://vibro-theta.vercel.app/)
